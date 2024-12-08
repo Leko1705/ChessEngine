@@ -1,23 +1,5 @@
 
 
-black_king = 0
-white_king = 1
-
-black_queen = 2
-white_queen = 3
-
-black_rook = 4
-white_rook = 5
-
-black_bishop = 6
-white_bishop = 7
-
-black_knight = 8
-white_knight = 9
-
-black_pawn = 4
-white_pawn = 5
-
 def pos_to_board(x, y):
     return y*8 + x
 
@@ -187,3 +169,29 @@ class Move:
 
     def invert(self):
         self.inverter()
+
+
+
+# initialize positions
+
+black_king = pos_to_board(3, 7)
+white_king = pos_to_board(3, 0)
+
+black_queen = pos_to_board(4, 7)
+white_queen = pos_to_board(4, 0)
+
+black_rook = pos_to_board(0, 7) | pos_to_board(7, 7)
+white_rook = pos_to_board(0, 0) | pos_to_board(7, 0)
+
+black_bishop = pos_to_board(2, 7) | pos_to_board(5, 7)
+white_bishop = pos_to_board(2, 0) | pos_to_board(5, 0)
+
+black_knight = pos_to_board(1, 7) | pos_to_board(6, 7)
+white_knight = pos_to_board(1, 0) | pos_to_board(6, 0)
+
+black_pawn = 0
+white_pawn = 0
+
+for i in range(0, 8):
+    black_pawn |= pos_to_board(i, 6)
+    white_pawn |= pos_to_board(i, 1)
